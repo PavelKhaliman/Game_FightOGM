@@ -1,0 +1,13 @@
+/.tools/
+/dist/
+/config/settings.json
+/test-output/
+*.log
+/logs/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store

@@ -1,0 +1,247 @@
+{
+  "game": "FightOGM",
+  "source": "FightOGM_animated_models",
+  "characters": {
+    "ivanov": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "bad_hearing",
+        "production_invisible",
+        "omni_transform",
+        "omni_rush"
+      ],
+      "file": "ivanov.glb"
+    },
+    "gagloev": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "skewer_control",
+        "shashlik"
+      ],
+      "file": "gagloev.glb"
+    },
+    "kiselik": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "sueta_dash",
+        "yes_boss",
+        "everything_at_once"
+      ],
+      "file": "kiselik.glb"
+    },
+    "novatskiy": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "screw_throw",
+        "snap_back",
+        "screw_batch"
+      ],
+      "file": "novatskiy.glb"
+    },
+    "zhirnov": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "ai_agent",
+        "autopilot",
+        "do_it_for_me"
+      ],
+      "file": "zhirnov.glb"
+    },
+    "elkhimov": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "wrench_32",
+        "repair_armor",
+        "overhaul"
+      ],
+      "file": "elkhimov.glb"
+    },
+    "kalachev": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "water_burst",
+        "was_not_here",
+        "break_return"
+      ],
+      "file": "kalachev.glb"
+    },
+    "fedoseev": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "sarcasm_wave",
+        "slow_clap",
+        "genius_plan"
+      ],
+      "file": "fedoseev.glb"
+    },
+    "khaliman": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "plc_pulse",
+        "standby",
+        "gym_mode",
+        "asutp"
+      ],
+      "file": "khaliman.glb"
+    },
+    "shuev": {
+      "base_animations": [
+        "idle",
+        "walk",
+        "crouch",
+        "jump",
+        "punch_light",
+        "punch_heavy",
+        "kick_high",
+        "block",
+        "hit_react",
+        "knockdown",
+        "get_up",
+        "grab",
+        "victory",
+        "special_pose"
+      ],
+      "special_animations": [
+        "karate_flurry",
+        "stance_counter",
+        "endless_shift"
+      ],
+      "file": "shuev.glb"
+    }
+  }
+}

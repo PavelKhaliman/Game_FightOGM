@@ -1,0 +1,57 @@
+{
+  "output": "assets\\models\\ivanov.glb",
+  "original_sha256": "cc21fc48eae9f1a375438aa580e201d4ed3d84b941af700c4ca6ff74fe225a8f",
+  "output_sha256": "ae057f4c536eaa5d42107b6fcabac801e2721988b3d2f12cf5d162297dd90ad7",
+  "bytes": 13237312,
+  "surfaces": [
+    {
+      "surface": "Ivanov identity / sculpted face and hairline",
+      "vertices": 651,
+      "triangles": 1288
+    },
+    {
+      "surface": "Ivanov tailored clothes / hair / leather",
+      "vertices": 23390,
+      "triangles": 11711
+    },
+    {
+      "surface": "Ivanov neck / forearms / hands",
+      "vertices": 9548,
+      "triangles": 7598
+    },
+    {
+      "surface": "Ivanov seams / buttons / shoes / buckle",
+      "vertices": 2147,
+      "triangles": 1764
+    },
+    {
+      "surface": "Ivanov combed gray hair",
+      "vertices": 1444,
+      "triangles": 722
+    }
+  ],
+  "vertices": 37180,
+  "triangles": 23083,
+  "embedded_textures": 3,
+  "preserved_clips": [
+    "idle",
+    "walk",
+    "crouch",
+    "jump",
+    "punch_light",
+    "punch_heavy",
+    "kick_high",
+    "block",
+    "hit_react",
+    "knockdown",
+    "get_up",
+    "grab",
+    "victory",
+    "special_pose",
+    "bad_hearing",
+    "production_invisible",
+    "omni_transform",
+    "omni_rush"
+  ],
+  "rig_and_animation_data_unchanged": true
+}

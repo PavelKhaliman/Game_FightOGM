@@ -1,0 +1,56 @@
+[
+  {
+    "id": "gagloev",
+    "photo": "Gagloev.jpg",
+    "sheet": "gagloev_model_sheet.png",
+    "look": "Gagloev: mature slim man, short tousled brown hair with some gray, expressive wrinkled clean-shaven face and long nose. Dark charcoal subtle checked suit, light blue open-collar shirt, black belt, black polished shoes. No moustache. Match reference 1 face and reference 2 clothing."
+  },
+  {
+    "id": "kiselik",
+    "photo": "Kiselik.jpg",
+    "sheet": "kiselik.png",
+    "look": "Kiselik: lean athletic middle-aged man, very short brown buzzcut, light eyes, angular clean-shaven face. Black zipped hooded tracksuit with broad white panels down the shoulders and sleeves and white side stripes on trousers; white gray sneakers. Hood down. No moustache, no logos."
+  },
+  {
+    "id": "novatskiy",
+    "photo": "Novatskiy.jpg",
+    "sheet": "novatskiy_model_sheet.png",
+    "look": "Novatskiy: lean athletic young adult man, short dark brown side-combed hair, clean-shaven angular face. White tank top, thick silver chain necklace, black tracksuit trousers with thin white side stripes, white gray sneakers. No keyboard, no moustache, no logos."
+  },
+  {
+    "id": "zhirnov",
+    "photo": "Zhirnov.jpg",
+    "sheet": "zhirnov_model_sheet.png",
+    "look": "Zhirnov: slim adult man, high receding light brown hairline, short brown hair at sides, narrow clean-shaven face, friendly confident expression. Sparkling PURPLE sequin shirt open at chest, round gold medallion necklace, metallic GOLD trousers and gold belt, white sneakers. No tambourine in ordinary poses. Preserve exact reference identity."
+  },
+  {
+    "id": "elkhimov",
+    "photo": "Elkhimov.jpg",
+    "sheet": "elkhimov_model_sheet.png",
+    "look": "Elkhimov: mature stocky muscular man, nearly bald with very short dark hair at sides, clean-shaven serious broad face. Bare chest, natural chest hair, black leather trousers, black belt with a small mechanic's tool pouch at hip, black lace-up work boots. No guitar, no shirt. Heavy powerful build, exact facial identity."
+  },
+  {
+    "id": "kalachev",
+    "photo": "Kalachev.jpg",
+    "sheet": "kalachev_model_sheet.png",
+    "look": "Kalachev: lean adult man, short straight light brown hair, long clean-shaven face, blue eyes. Purple athletic headband, vivid PINK tank top, BLUE wristbands and belt, fitted trousers in diagonal black/yellow/pink/blue/turquoise stripes, white-blue high-top sneakers. Use blue/turquoise rather than pure green in trouser stripes so clothing survives chroma key. No microphone, no logos."
+  },
+  {
+    "id": "fedoseev",
+    "photo": "Fedoseev.jpg",
+    "sheet": "fedoseev_model_sheet.png",
+    "look": "Fedoseev: young adult man, fair skin, short sides and side-swept light brown/blond hair, very light chin stubble, narrow clean face and knowing half-smile. Plain BLACK crewneck sweatshirt, dark charcoal denim jeans, black sneakers with white soles. No logos or props."
+  },
+  {
+    "id": "khaliman",
+    "photo": "Khaliman.jpg",
+    "sheet": "khaliman_model_sheet.png",
+    "look": "Khaliman: young adult man, light brown side-swept hair, small moustache and short goatee, fair skin and average sturdy build. OPEN navy-red-white PLAID overshirt with rolled sleeves over plain black T-shirt, blue denim jeans, dark brown leather boots. No drink, no logos."
+  },
+  {
+    "id": "shuev",
+    "photo": "Shuev.jpg",
+    "sheet": "shuev_model_sheet.png",
+    "look": "Shuev: middle-aged man, short GRAY salt-and-pepper hair, clean-shaven face, calm stern expression. White button-up shirt with sleeves rolled to forearms, buttoned brown tailored waistcoat, dark charcoal dress trousers, brown leather dress shoes. Karate guard stance, balanced build. No tie, no moustache, no weapons."
+  }
+]

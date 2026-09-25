@@ -1,0 +1,707 @@
+{
+  "frames": {
+    "movement_00": {
+      "sheet": "movement.png",
+      "rect": [
+        63,
+        15,
+        257,
+        354
+      ],
+      "pivot": [
+        128.0,
+        352.0
+      ],
+      "world_height": 2
+    },
+    "movement_01": {
+      "sheet": "movement.png",
+      "rect": [
+        425,
+        18,
+        242,
+        351
+      ],
+      "pivot": [
+        120.5,
+        349.0
+      ],
+      "world_height": 2
+    },
+    "movement_02": {
+      "sheet": "movement.png",
+      "rect": [
+        782,
+        17,
+        241,
+        352
+      ],
+      "pivot": [
+        120.0,
+        350.0
+      ],
+      "world_height": 2
+    },
+    "movement_03": {
+      "sheet": "movement.png",
+      "rect": [
+        1146,
+        17,
+        241,
+        352
+      ],
+      "pivot": [
+        120.0,
+        350.0
+      ],
+      "world_height": 1.96
+    },
+    "movement_04": {
+      "sheet": "movement.png",
+      "rect": [
+        65,
+        476,
+        225,
+        236
+      ],
+      "pivot": [
+        104.0,
+        234.0
+      ],
+      "world_height": 1.4
+    },
+    "movement_05": {
+      "sheet": "movement.png",
+      "rect": [
+        470,
+        371,
+        176,
+        264
+      ],
+      "pivot": [
+        88.0,
+        262.0
+      ],
+      "world_height": 1.52
+    },
+    "movement_06": {
+      "sheet": "movement.png",
+      "rect": [
+        751,
+        378,
+        285,
+        336
+      ],
+      "pivot": [
+        146.5,
+        334.0
+      ],
+      "world_height": 2
+    },
+    "movement_07": {
+      "sheet": "movement.png",
+      "rect": [
+        1138,
+        378,
+        240,
+        335
+      ],
+      "pivot": [
+        123.0,
+        333.0
+      ],
+      "world_height": 2
+    },
+    "movement_08": {
+      "sheet": "movement.png",
+      "rect": [
+        59,
+        718,
+        215,
+        346
+      ],
+      "pivot": [
+        115.5,
+        344.0
+      ],
+      "world_height": 2
+    },
+    "movement_09": {
+      "sheet": "movement.png",
+      "rect": [
+        379,
+        717,
+        305,
+        347
+      ],
+      "pivot": [
+        156.5,
+        345.0
+      ],
+      "world_height": 2
+    },
+    "movement_10": {
+      "sheet": "movement.png",
+      "rect": [
+        765,
+        721,
+        269,
+        343
+      ],
+      "pivot": [
+        134.0,
+        341.0
+      ],
+      "world_height": 2
+    },
+    "movement_11": {
+      "sheet": "movement.png",
+      "rect": [
+        1133,
+        719,
+        268,
+        345
+      ],
+      "pivot": [
+        133.5,
+        343.0
+      ],
+      "world_height": 2
+    },
+    "attacks_00": {
+      "sheet": "attacks.png",
+      "rect": [
+        58,
+        19,
+        258,
+        350
+      ],
+      "pivot": [
+        128.5,
+        348.0
+      ],
+      "world_height": 2
+    },
+    "attacks_01": {
+      "sheet": "attacks.png",
+      "rect": [
+        398,
+        20,
+        310,
+        349
+      ],
+      "pivot": [
+        129.5,
+        347.0
+      ],
+      "world_height": 2
+    },
+    "attacks_02": {
+      "sheet": "attacks.png",
+      "rect": [
+        776,
+        19,
+        251,
+        350
+      ],
+      "pivot": [
+        125.0,
+        348.0
+      ],
+      "world_height": 2
+    },
+    "attacks_03": {
+      "sheet": "attacks.png",
+      "rect": [
+        1103,
+        20,
+        298,
+        349
+      ],
+      "pivot": [
+        148.5,
+        347.0
+      ],
+      "world_height": 2
+    },
+    "attacks_04": {
+      "sheet": "attacks.png",
+      "rect": [
+        34,
+        379,
+        351,
+        342
+      ],
+      "pivot": [
+        140.5,
+        340.0
+      ],
+      "world_height": 1.96,
+      "regions": [
+        [
+          0,
+          0,
+          351,
+          339
+        ],
+        [
+          8,
+          339,
+          40,
+          3
+        ],
+        [
+          240,
+          339,
+          24,
+          3
+        ]
+      ]
+    },
+    "attacks_05": {
+      "sheet": "attacks.png",
+      "rect": [
+        420,
+        379,
+        253,
+        343
+      ],
+      "pivot": [
+        126.0,
+        341.0
+      ],
+      "world_height": 2
+    },
+    "attacks_06": {
+      "sheet": "attacks.png",
+      "rect": [
+        781,
+        369,
+        204,
+        355
+      ],
+      "pivot": [
+        94.5,
+        353.0
+      ],
+      "world_height": 2
+    },
+    "attacks_07": {
+      "sheet": "attacks.png",
+      "rect": [
+        1081,
+        382,
+        343,
+        343
+      ],
+      "pivot": [
+        76.0,
+        341.0
+      ],
+      "world_height": 1.94
+    },
+    "attacks_08": {
+      "sheet": "attacks.png",
+      "rect": [
+        89,
+        718,
+        167,
+        343
+      ],
+      "pivot": [
+        51.0,
+        341.0
+      ],
+      "world_height": 2,
+      "regions": [
+        [
+          80,
+          0,
+          23,
+          3
+        ],
+        [
+          0,
+          3,
+          167,
+          340
+        ]
+      ]
+    },
+    "attacks_09": {
+      "sheet": "attacks.png",
+      "rect": [
+        415,
+        824,
+        242,
+        228
+      ],
+      "pivot": [
+        22.5,
+        226.0
+      ],
+      "world_height": 1.39
+    },
+    "attacks_10": {
+      "sheet": "attacks.png",
+      "rect": [
+        708,
+        838,
+        390,
+        217
+      ],
+      "pivot": [
+        30.0,
+        215.0
+      ],
+      "world_height": 1.31
+    },
+    "attacks_11": {
+      "sheet": "attacks.png",
+      "rect": [
+        1159,
+        814,
+        211,
+        243
+      ],
+      "pivot": [
+        101.5,
+        241.0
+      ],
+      "world_height": 1.46
+    },
+    "actions_00": {
+      "sheet": "actions.png",
+      "rect": [
+        72,
+        24,
+        245,
+        324
+      ],
+      "pivot": [
+        126.5,
+        322.0
+      ],
+      "world_height": 1.903
+    },
+    "actions_01": {
+      "sheet": "actions.png",
+      "rect": [
+        400,
+        59,
+        283,
+        287
+      ],
+      "pivot": [
+        151.5,
+        285.0
+      ],
+      "world_height": 1.6857
+    },
+    "actions_02": {
+      "sheet": "actions.png",
+      "rect": [
+        722,
+        243,
+        361,
+        105
+      ],
+      "pivot": [
+        180.5,
+        103.0
+      ],
+      "world_height": 0.55
+    },
+    "actions_03": {
+      "sheet": "actions.png",
+      "rect": [
+        1126,
+        107,
+        269,
+        242
+      ],
+      "pivot": [
+        173.0,
+        240.0
+      ],
+      "world_height": 1.4214
+    },
+    "actions_04": {
+      "sheet": "actions.png",
+      "rect": [
+        51,
+        384,
+        247,
+        332
+      ],
+      "pivot": [
+        123.0,
+        330.0
+      ],
+      "world_height": 1.95
+    },
+    "actions_05": {
+      "sheet": "actions.png",
+      "rect": [
+        421,
+        370,
+        235,
+        349
+      ],
+      "pivot": [
+        117.0,
+        347.0
+      ],
+      "world_height": 2.0498
+    },
+    "actions_06": {
+      "sheet": "actions.png",
+      "rect": [
+        748,
+        403,
+        266,
+        312
+      ],
+      "pivot": [
+        132.5,
+        310.0
+      ],
+      "world_height": 1.8325
+    },
+    "actions_07": {
+      "sheet": "actions.png",
+      "rect": [
+        1093,
+        403,
+        323,
+        311
+      ],
+      "pivot": [
+        144.5,
+        309.0
+      ],
+      "world_height": 1.8267
+    },
+    "actions_08": {
+      "sheet": "actions.png",
+      "rect": [
+        41,
+        735,
+        265,
+        321
+      ],
+      "pivot": [
+        132.0,
+        319.0
+      ],
+      "world_height": 1.8854
+    },
+    "actions_09": {
+      "sheet": "actions.png",
+      "rect": [
+        383,
+        736,
+        285,
+        320
+      ],
+      "pivot": [
+        142.0,
+        318.0
+      ],
+      "world_height": 1.8795
+    },
+    "actions_10": {
+      "sheet": "actions.png",
+      "rect": [
+        719,
+        748,
+        325,
+        302
+      ],
+      "pivot": [
+        139.5,
+        300.0
+      ],
+      "world_height": 1.7738
+    },
+    "actions_11": {
+      "sheet": "actions.png",
+      "rect": [
+        1049,
+        737,
+        382,
+        314
+      ],
+      "pivot": [
+        175.0,
+        312.0
+      ],
+      "world_height": 1.8443
+    }
+  },
+  "clips": {
+    "idle": {
+      "frames": [
+        "movement_00",
+        "movement_01",
+        "movement_00",
+        "movement_02"
+      ],
+      "fps": 4,
+      "loop": true,
+      "attack": false
+    },
+    "walk": {
+      "frames": [
+        "movement_06",
+        "movement_07",
+        "movement_08",
+        "movement_09",
+        "movement_10",
+        "movement_11"
+      ],
+      "fps": 9,
+      "loop": true,
+      "attack": false
+    },
+    "block": {
+      "frames": [
+        "movement_03"
+      ],
+      "fps": 6,
+      "loop": true,
+      "attack": false
+    },
+    "crouch": {
+      "frames": [
+        "movement_04"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "jump": {
+      "frames": [
+        "movement_05"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "punch_light": {
+      "frames": [
+        "attacks_00",
+        "attacks_01",
+        "attacks_02"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "punch_heavy": {
+      "frames": [
+        "attacks_03",
+        "attacks_04",
+        "attacks_05"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "kick_high": {
+      "frames": [
+        "attacks_06",
+        "attacks_07",
+        "attacks_08"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "kick_low": {
+      "frames": [
+        "attacks_09",
+        "attacks_10",
+        "attacks_11"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "hit_react": {
+      "frames": [
+        "actions_00"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "knockdown": {
+      "frames": [
+        "actions_01",
+        "actions_02",
+        "actions_02",
+        "actions_02"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "get_up": {
+      "frames": [
+        "actions_02",
+        "actions_03",
+        "actions_04"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "victory": {
+      "frames": [
+        "actions_05"
+      ],
+      "fps": 3,
+      "loop": true,
+      "attack": false
+    },
+    "grab": {
+      "frames": [
+        "movement_00",
+        "actions_10",
+        "movement_00"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "foam_burst": {
+      "frames": [
+        "actions_06",
+        "actions_07",
+        "actions_08"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    },
+    "biker_guard": {
+      "frames": [
+        "actions_09"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": false
+    },
+    "full_throttle": {
+      "frames": [
+        "actions_10",
+        "actions_11",
+        "movement_00"
+      ],
+      "fps": 8,
+      "loop": false,
+      "attack": true
+    }
+  }
+}

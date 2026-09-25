@@ -37,8 +37,8 @@ func (a *App) smoke(dir string) error {
 	}
 	rl.SetTargetFPS(0)
 	report := map[string]any{"renderer": "raylib native 2D sprites", "fighters": len(a.Roster), "3d_models_loaded": 0}
-	if len(a.Roster) != 10 || a.Roster[0].ID != "ivanov" {
-		return fmt.Errorf("ожидались десять 2D-бойцов")
+	if len(a.Roster) != 12 || a.Roster[0].ID != "ivanov" {
+		return fmt.Errorf("ожидались двенадцать 2D-бойцов")
 	}
 	atlas := a.Renderer.Atlases["ivanov"]
 	report["sprite_frames"] = len(atlas.Frames)
@@ -86,8 +86,17 @@ func (a *App) smoke(dir string) error {
 		return fmt.Errorf("меню боя с компьютером не работает")
 	}
 	a.update(input.Frame{SelectionX: [2]int{-1, 1}, SelectionY: [2]int{1, -1}}, game.Step)
-	if a.Selection != [2]int{9, 7} {
+	if a.Selection != [2]int{11, 8} {
 		return fmt.Errorf("выбор по сетке не работает: %v", a.Selection)
+	}
+	// Select both new fighters through the same mouse path as the player.
+	for p, index := range [2]int{10, 11} {
+		header, card := ui.PlayerRect(p), ui.CardRect(index)
+		a.update(input.Frame{MouseClick: true, MouseX: header.X + 10, MouseY: header.Y + 10}, game.Step)
+		a.update(input.Frame{MouseClick: true, MouseX: card.X + 10, MouseY: card.Y + 10}, game.Step)
+	}
+	if a.Selection != [2]int{10, 11} {
+		return fmt.Errorf("мышь не выбирает новых бойцов: %v", a.Selection)
 	}
 	if e := a.snapshot(dir, "02-character-select"); e != nil {
 		return e

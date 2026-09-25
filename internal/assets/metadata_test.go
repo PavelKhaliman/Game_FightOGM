@@ -7,17 +7,20 @@ import (
 	"testing"
 )
 
-func TestRosterManifestAndGLBClips(t *testing.T) {
+func TestLegacyManifestAndGLBClips(t *testing.T) {
 	root := filepath.Join("..", "..")
 	manifest, e := ReadManifest(root)
 	if e != nil {
 		t.Fatal(e)
 	}
 	roster := characters.Roster()
-	if len(roster) != 10 || len(manifest.Characters) != 10 {
-		t.Fatal("roster must contain exactly ten fighters")
+	if len(manifest.Characters) != 10 {
+		t.Fatal("archived 3D manifest must retain its ten original fighters")
 	}
 	for _, d := range roster {
+		if _, legacy := manifest.Characters[d.ID]; !legacy {
+			continue // New fighters are native 2D and do not require a GLB.
+		}
 		t.Run(d.ID, func(t *testing.T) {
 			entry, ok := manifest.Characters[d.ID]
 			if !ok {

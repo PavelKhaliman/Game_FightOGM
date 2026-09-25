@@ -40,4 +40,5 @@ Get-ChildItem -LiteralPath (Join-Path $projectRoot 'assets\audio') -File |
 Copy-Item -LiteralPath (Join-Path $projectRoot 'README.md') -Destination $distPath -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'THIRD_PARTY_NOTICES.md') -Destination $distPath -Force
 Copy-Item -LiteralPath (Join-Path $projectRoot 'licenses') -Destination $distPath -Recurse -Force
+Copy-Item -LiteralPath (Join-Path $projectRoot 'docs') -Destination $distPath -Recurse -Force
 Write-Host 'Build ready: dist\FightOGM.exe'

@@ -32,12 +32,13 @@ func (s State) String() string {
 type Status struct {
 	Armor, Resistance, Invisible, Invulnerable, Counter, AutoBlock float32
 	Omni, Gym, Focus, Slippery, QuickRecovery                      float32
+	Capacitor                                                      float32
 	Sueta                                                          int
 	Stationary                                                     float32
 }
 
 func (s *Status) Tick(dt float32) {
-	for _, p := range []*float32{&s.Armor, &s.Resistance, &s.Invisible, &s.Invulnerable, &s.Counter, &s.AutoBlock, &s.Omni, &s.Gym, &s.Focus, &s.Slippery, &s.QuickRecovery} {
+	for _, p := range []*float32{&s.Armor, &s.Resistance, &s.Invisible, &s.Invulnerable, &s.Counter, &s.AutoBlock, &s.Omni, &s.Gym, &s.Focus, &s.Slippery, &s.QuickRecovery, &s.Capacitor} {
 		*p = max(0, *p-dt)
 	}
 }

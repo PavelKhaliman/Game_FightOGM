@@ -53,4 +53,17 @@
     "sheet": "shuev_model_sheet.png",
     "look": "Shuev: middle-aged man, short GRAY salt-and-pepper hair, clean-shaven face, calm stern expression. White button-up shirt with sleeves rolled to forearms, buttoned brown tailored waistcoat, dark charcoal dress trousers, brown leather dress shoes. Karate guard stance, balanced build. No tie, no moustache, no weapons."
   }
+,
+{
+  "id": "tsvetkov",
+  "photo": "Цветков.jpg",
+  "look": "Tsvetkov: the man standing LEFT of the motorcycle in Image 1. Preserve his adult mature face, slightly long nose, short straight medium brown hair swept to the side, subtle light stubble, medium lean sturdy build. Wear the same black leather motorcycle jacket with thin CREAM horizontal stripes across chest and upper arms, black inner shirt, dark indigo jeans, black lace-up motorcycle boots. No helmet, glasses, motorcycle, backpack or mug in these movement poses.",
+  "sheet": "../../sprites/tsvetkov/movement.png"
+},
+{
+  "id": "kozerod",
+  "photo": "Козерод.jpg",
+  "look": "Kozerod: foreground adult man with arms folded in Image 1. Preserve his young adult strong oval/square face, short sandy blond hair brushed to the side with short sides, straight nose and broad jaw, clean-shaven face, athletic average build. Black zip-up work jacket with a stand collar and small round blue-and-gold patch on upper sleeve without legible words, black straight trousers, black sporty shoes with white soles. Confident determined expression. No other people or background objects.",
+  "sheet": "../../sprites/kozerod/movement.png"
+}
 ]

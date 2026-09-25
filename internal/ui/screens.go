@@ -13,6 +13,8 @@ var MainLabels = []string{"БОЙ С КОМПЬЮТЕРОМ", "ДВА ИГРОК
 var PauseLabels = []string{"ПРОДОЛЖИТЬ", "НАЧАТЬ РАУНД ЗАНОВО", "УПРАВЛЕНИЕ", "ГЛАВНОЕ МЕНЮ"}
 var ResultLabels = []string{"РЕВАНШ", "ПОДГОТОВКА К БОЮ", "ГЛАВНОЕ МЕНЮ"}
 
+const SelectionColumns = 6
+
 func (u *UI) Main(selected int) {
 	Rect(0, 0, 680, 900, rl.Fade(Background, .94))
 	Rect(680, 0, 2, 900, rl.Fade(Amber, .35))
@@ -21,12 +23,14 @@ func (u *UI) Main(selected int) {
 	u.Text("ПРОИЗВОДСТВО НЕ ОСТАНАВЛИВАЕТСЯ", 100, 284, 21, Muted)
 	Rect(100, 340, 72, 5, Amber)
 	u.Buttons(MainLabels, selected, MainLayout)
-	u.Text("2D-ФАЙТИНГ   ·   10 БОЙЦОВ   ·   СМЕНА 01", 100, 760, 18, Muted)
+	u.Text("2D-ФАЙТИНГ   ·   12 БОЙЦОВ   ·   СМЕНА 01", 100, 760, 18, Muted)
 	u.Text("↑ ↓  Выбор     Enter  Подтвердить", 100, 802, 18, Muted)
 	u.Right("ЦЕХ ОГМ  /  СМЕНА 01", 1532, 842, 20, Text)
 }
 func CardRect(i int) rl.Rectangle {
-	return rl.NewRectangle(64+float32(i%5)*298, 560+float32(i/5)*120, 280, 108)
+	const gap float32 = 12
+	const width float32 = (1472 - gap*(SelectionColumns-1)) / SelectionColumns
+	return rl.NewRectangle(64+float32(i%SelectionColumns)*(width+gap), 560+float32(i/SelectionColumns)*120, width, 108)
 }
 func ReadyRect(p int) rl.Rectangle  { return rl.NewRectangle(64+float32(p)*758, 805, 714, 36) }
 func PlayerRect(p int) rl.Rectangle { return rl.NewRectangle(64+float32(p)*758, 128, 714, 82) }
@@ -71,14 +75,14 @@ func (u *UI) Select(roster []fighter.Definition, selected [2]int, ready [2]bool,
 		r := CardRect(i)
 		rl.DrawRectangleRec(r, rl.Fade(Panel, .96))
 		rl.DrawRectangleLinesEx(r, 1, Line)
-		portrait(i, rl.NewRectangle(r.X+2, r.Y+2, 94, r.Height-4))
-		u.Fit(d.Name, r.X+103, r.Y+29, 169, 22, Text)
-		u.Fit(d.Archetype, r.X+103, r.Y+65, 164, 16, Muted)
+		portrait(i, rl.NewRectangle(r.X+2, r.Y+2, 84, r.Height-4))
+		u.Fit(d.Name, r.X+92, r.Y+29, r.Width-100, 21, Text)
+		u.Fit(d.Archetype, r.X+92, r.Y+65, r.Width-100, 16, Muted)
 		for p := 0; p < 2; p++ {
 			if selected[p] == i {
 				o := float32(p) * 3
 				rl.DrawRectangleLinesEx(rl.NewRectangle(r.X+o, r.Y+o, r.Width-o*2, r.Height-o*2), 3, PlayerColors[p])
-				u.Text(fmt.Sprintf("%d", p+1), r.X+103+float32(p)*26, r.Y+7, 17, PlayerColors[p])
+				u.Text(fmt.Sprintf("%d", p+1), r.X+92+float32(p)*26, r.Y+7, 17, PlayerColors[p])
 			}
 		}
 	}
@@ -99,6 +103,9 @@ func (u *UI) Versus(a, b fighter.Definition) {
 }
 func status(f *fighter.Fighter) string {
 	s := ""
+	if f.Status.Capacitor > 0 {
+		s += "ЗАРЯД ГОТОВ  "
+	}
 	if f.Status.Omni > 0 {
 		s += "ОМНИ  "
 	}

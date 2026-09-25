@@ -160,9 +160,10 @@ func TestTimerTieKOAndBestOfThree(t *testing.T) {
 	}
 }
 func TestAllSpecialsAndUltimateGameplay(t *testing.T) {
-	for i, d := range characters.Roster() {
+	roster := characters.Roster()
+	for i, d := range roster {
 		t.Run(d.ID, func(t *testing.T) {
-			m := setup(i, (i+1)%10)
+			m := setup(i, (i+1)%len(roster))
 			a, b := m.Fighters[0], m.Fighters[1]
 			press(m, 0, input.Ultimate)
 			if a.Move != nil {
@@ -188,7 +189,7 @@ func TestAllSpecialsAndUltimateGameplay(t *testing.T) {
 					t.Fatal("ultimate produced no damage")
 				}
 			}
-			m = setup(i, (i+1)%10)
+			m = setup(i, (i+1)%len(roster))
 			a, b = m.Fighters[0], m.Fighters[1]
 			press(m, 0, input.Special)
 			advance(m, 1.8)
@@ -199,11 +200,11 @@ func TestAllSpecialsAndUltimateGameplay(t *testing.T) {
 			} else if b.HP == b.Definition.MaxHP {
 				t.Fatal("special produced no gameplay effect")
 			}
-			m = setup(i, (i+1)%10)
+			m = setup(i, (i+1)%len(roster))
 			a = m.Fighters[0]
 			press(m, 0, input.Secondary)
 			s := a.Status
-			if s.Invisible+s.QuickRecovery+s.Armor+s.Counter+s.AutoBlock+s.Invulnerable+s.Gym <= 0 {
+			if s.Invisible+s.QuickRecovery+s.Armor+s.Counter+s.AutoBlock+s.Invulnerable+s.Gym+s.Capacitor <= 0 {
 				t.Fatal("secondary produced no gameplay effect")
 			}
 		})

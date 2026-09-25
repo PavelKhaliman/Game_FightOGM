@@ -128,7 +128,7 @@ func (a *App) smokeRoster(dir string, report map[string]any) error {
 			actionsPlayed++
 		}
 	}
-	if len(projectiles) != 5 {
+	if len(projectiles) != 7 || !projectiles["foam"] || !projectiles["arc"] {
 		return fmt.Errorf("не проверены все типы снарядов: %v", projectiles)
 	}
 	report["sprite_frames"] = totalFrames

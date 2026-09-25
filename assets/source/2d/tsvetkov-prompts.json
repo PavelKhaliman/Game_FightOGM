@@ -1,0 +1,46 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-09-25",
+  "character": "tsvetkov",
+  "jobs": [
+    {
+      "id": "tsvetkov",
+      "sheet": "movement",
+      "prompt": "Use case: stylized-concept. Production-ready hand-painted realistic 2D arcade fighting-game sprite atlas. Image 2 is the authoritative facial identity and wardrobe photo of ONE adult male fighter; ignore everyone else and the surroundings in the photo. Image 3 is the existing game's sprite sheet: match its illustrated shading, crisp silhouette, anatomy, camera and consistent warm lighting, NOT its character's face or clothes. Exactly 12 full-body sprites, FOUR columns by THREE rows, read left-to-right top-to-bottom. Each body faces SCREEN RIGHT with face and chest turned slightly toward viewer. Wide 4:3 canvas, preferably 2048x1536. Equal cells, at least 7% clear margin around every body on all sides, no overlapping or touching other cells, whole hands and boots visible. Every standing body the same anatomical size; crouched and jumping bodies naturally lower, never enlarged. Flat pure saturated chroma GREEN #00FF00 fills all background and gaps. Green will be removed by the game shader. No grid, text, labels, ground shadows, floor, extra people, effects, blur, watermark or logos. Two arms, two legs.\nTsvetkov: the man standing LEFT of the motorcycle in Image 2. Preserve his adult mature face, slightly long nose, short straight medium brown hair swept to the side, subtle light stubble, medium lean sturdy build. Wear the same black leather motorcycle jacket with thin CREAM horizontal stripes across chest and upper arms, black inner shirt, dark indigo jeans, black lace-up motorcycle boots. No helmet, glasses, motorcycle, backpack or mug in these movement poses.\nTwelve movement frames in reading order: 1 neutral fighting guard with fists raised, knees flexed; 2 same guard breathing in; 3 guard subtle weight shift; 4 high block both forearms protect head; 5 low crouching guard, one knee nearly ground, lowered head; 6 airborne compact jump with both knees tucked and fists guarding; 7 through 12 SIX successive distinct combat shuffle walking keyframes toward SCREEN RIGHT, alternate feet forward and together, knees continuously flexed, fists up. Frame 12 reconnects to frame 7. Keep each body fully isolated within its cell. No props.\nThere are THREE input images: first is ONLY Kozerod's reference, second is ONLY Tsvetkov's reference, third is the game's STYLE example. Generate ONLY tsvetkov. Ignore the other man's photograph.",
+      "refs": [
+        "D:\\FightOGM\\assets\\references\\tsvetkov\\Цветков.jpg",
+        "D:\\FightOGM\\assets\\sprites\\shuev\\movement.png"
+      ],
+      "input_mode": "three displayed reference previews",
+      "num_last_images_to_include": 3,
+      "generated_source": "C:\\Users\\Володя\\.codex\\generated_images\\01a0a436-f8c9-7393-9ecf-858741e5ff15\\exec-363a42d3-9708-48d7-ba6b-82f266b5652d.png",
+      "saved_path": "assets/sprites/tsvetkov/movement.png"
+    },
+    {
+      "id": "tsvetkov",
+      "sheet": "attacks",
+      "prompt": "Use case: stylized-concept. Make ONE polished 2D fighting-game sprite atlas, hand-painted realistic illustration matching the supplied sprites exactly. The TWO reference images show DIFFERENT existing fighters: Image 1 = Tsvetkov (brown hair, black leather jacket with cream stripes, dark BLUE JEANS, black motorcycle boots). Image 2 = Kozerod (short blond hair, clean shaven, ALL BLACK zip-up uniform with a small round blue/gold patch and black shoes with white soles). Use ONLY the specified character, preserve that reference face, age, costume, anatomy, scale and style exactly. FOUR columns x THREE rows = 12 isolated full bodies, reading order left to right top to bottom. Wide 4:3 canvas, highest available resolution preferably 2048x1536. Side-view bodies face SCREEN RIGHT, face and chest slightly to viewer. Equal cells, >=7 percent green padding EVERY side so no pose touches any adjacent cell. Absolutely flat pure #00FF00 green fills all empty background and body gaps. NO grid, letters, words, labels, shadow, floor, environment, second character, blur, VFX, watermark. Consistent anatomical size: low poses must be naturally shorter, not magnified. Full boots and hands in each cell.\nGENERATE ONLY TSVETKOV using Image 1.\nTwelve attack keyframes in reading order: 1 left jab windup with front fist guarding; 2 left fist fully extended horizontally to SCREEN RIGHT at head height; 3 jab recovery to guard; 4 rear heavy right cross windup torso rotates back; 5 rear heavy punch fully extended SCREEN RIGHT with hips rotated; 6 heavy recovery to guard; 7 high side kick chamber with front knee raised and supporting foot grounded; 8 high side kick fully extended SCREEN RIGHT at chest height, torso leans back, full boot stays inside cell; 9 leg retracted into chamber after high kick; 10 low sweep windup in deep crouch; 11 low sweeping leg fully extended SCREEN RIGHT near ankle height with support leg bent, hand may touch ground; 12 low sweep recovery in crouched guard. NO props in any attack frames.",
+      "num_last_images_to_include": 2,
+      "input_mode": "two displayed movement previews",
+      "refs": [
+        "assets/sprites/tsvetkov/movement.png",
+        "assets/sprites/kozerod/movement.png"
+      ],
+      "generated_source": "C:\\Users\\Володя\\.codex\\generated_images\\01a0a436-f8c9-7393-9ecf-858741e5ff15\\exec-08a0b8b9-e2e5-4266-a340-cb8dfc95dac0.png",
+      "saved_path": "assets/sprites/tsvetkov/attacks.png"
+    },
+    {
+      "id": "tsvetkov",
+      "sheet": "actions",
+      "prompt": "Use case: stylized-concept. Make ONE polished 2D fighting-game sprite atlas, hand-painted realistic illustration matching the supplied sprites exactly. The TWO reference images show DIFFERENT existing fighters: Image 1 = Tsvetkov (brown hair, black leather jacket with cream stripes, dark BLUE JEANS, black motorcycle boots). Image 2 = Kozerod (short blond hair, clean shaven, ALL BLACK zip-up uniform with a small round blue/gold patch and black shoes with white soles). Use ONLY the specified character, preserve that reference face, age, costume, anatomy, scale and style exactly. FOUR columns x THREE rows = 12 isolated full bodies, reading order left to right top to bottom. Wide 4:3 canvas, highest available resolution preferably 2048x1536. Side-view bodies face SCREEN RIGHT, face and chest slightly to viewer. Equal cells, >=7 percent green padding EVERY side so no pose touches any adjacent cell. Absolutely flat pure #00FF00 green fills all empty background and body gaps. NO grid, letters, words, labels, shadow, floor, environment, second character, blur, VFX, watermark. Consistent anatomical size: low poses must be naturally shorter, not magnified. Full boots and hands in each cell.\nGENERATE ONLY TSVETKOV using Image 1.\nTwelve action frames in reading order. First SIX: 1 recoiling backward from chest hit still on feet; 2 falling backward with knees buckled and torso tilted, whole body fully within its cell; 3 lying horizontally on back with head LEFT and feet RIGHT, full body fits naturally shorter in height; 4 getting up on one knee; 5 nearly standing in guard; 6 victory standing tall with one fist raised, raised fist must stay at least 7 percent below the cell top. No blood or wounds. Remaining SIX described next.\n7 special windup: feet grounded, holding a single clear glass beer tankard with amber beer and white foam close to his waist, elbow back; 8 special contact: tankard in front hand thrust toward SCREEN RIGHT at chest height as if launching foam, only a small foam cap IN THE MUG, NO detached liquid or effects; 9 special recovery: same mug draws back toward waist, guard restores; 10 defensive biker stance: both forearms firmly crossed in front of chest, no mug; 11 grapple preparation: both empty open hands reach toward SCREEN RIGHT at chest level, leaning toward opponent; 12 full-throttle ultimate: forceful forward lunge with one powerful straight punch toward SCREEN RIGHT and shoulder driven forward, no mug or vehicle.",
+      "num_last_images_to_include": 2,
+      "input_mode": "two displayed movement previews",
+      "refs": [
+        "assets/sprites/tsvetkov/movement.png",
+        "assets/sprites/kozerod/movement.png"
+      ],
+      "generated_source": "C:\\Users\\Володя\\.codex\\generated_images\\01a0a436-f8c9-7393-9ecf-858741e5ff15\\exec-734769f3-3126-491f-84c5-4dd9bf2351f4.png",
+      "saved_path": "assets/sprites/tsvetkov/actions.png"
+    }
+  ]
+}

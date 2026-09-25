@@ -11,3 +11,7 @@ __pycache__/
 !.env.example
 Thumbs.db
 .DS_Store
+
+# New source photos are local; generated game sprites are versioned.
+/assets/references/kozerod/
+/assets/references/tsvetkov/

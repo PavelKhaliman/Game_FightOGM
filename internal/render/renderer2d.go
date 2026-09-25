@@ -289,6 +289,9 @@ func (r *Renderer) DrawBattle(m *game.Match, debug bool) {
 		rl.DrawEllipseLines(int32(ground.X), int32(ground.Y+5), r.Unit*.49, r.Unit*.064, marker)
 		actor := r.Actors[i]
 		flip := f.Facing.X < 0
+		if f.Move != nil && f.Move.Effect == "engine" {
+			r.DrawEngineTrail(f.Position, f.Facing.X)
+		}
 		if f.Status.Omni > 0 || (f.Move != nil && (f.Move.Effect == "afterimage" || f.Move.Effect == "trail")) {
 			ghost := rl.NewColor(255, 97, 64, 255)
 			if f.Status.Omni <= 0 {
@@ -316,6 +319,9 @@ func (r *Renderer) DrawBattle(m *game.Match, debug bool) {
 		}
 		if f.Status.Counter > 0 || f.Status.AutoBlock > 0 {
 			r.DrawStatusRing(f.Position, rl.NewColor(132, 213, 255, 255))
+		}
+		if f.Status.Capacitor > 0 {
+			r.DrawStatusRing(f.Position, rl.NewColor(171, 187, 255, 255))
 		}
 		if f.Status.Resistance > 0 {
 			pos := r.Project(f.Position.Add(combat.Vec3{Y: 1.85}))

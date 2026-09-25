@@ -1,5 +1,6 @@
 """Read generated sheets; derive JSON only, leaving every PNG unchanged."""
 import json
+import sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -22,6 +23,8 @@ SPECIALS = {
     'fedoseev': ('sarcasm_wave', 'slow_clap', 'genius_plan'),
     'khaliman': ('plc_pulse', 'gym_mode', 'asutp'),
     'shuev': ('karate_flurry', 'stance_counter', 'endless_shift'),
+    'tsvetkov': ('foam_burst', 'biker_guard', 'full_throttle'),
+    'kozerod': ('arc_discharge', 'capacitor_charge', 'circuit_overload'),
 }
 
 
@@ -82,7 +85,7 @@ def build(person):
             if sheet == 'movement' and index == 5:
                 px = w/2
             world_height = heights[index]
-            if sheet == 'actions' and index >= 6:
+            if sheet == 'actions' and (index >= 6 or (person['id'] in ('tsvetkov', 'kozerod') and index != 2)):
                 # Keep the same anatomical scale as the upright get-up frame;
                 # crouched attacks must lower the head instead of enlarging it.
                 reference_height = boxes[4][3]-boxes[4][1]+4
@@ -121,6 +124,8 @@ def build(person):
     if secondary != 'block':
         clip(secondary, 'actions', [9])
     clip(ultimate, 'actions', [10, 11, 8], attack=True)
+    if person['id'] == 'tsvetkov':
+        clips[ultimate]['frames'][-1] = 'movement_00'
     if person['id'] == 'shuev':
         clip(ultimate, 'actions', [10, 11])
     if person['id'] == 'khaliman':
@@ -131,4 +136,5 @@ def build(person):
 
 if __name__ == '__main__':
     for person in PEOPLE:
-        build(person)
+        if len(sys.argv) == 1 or person['id'] in sys.argv[1:]:
+            build(person)

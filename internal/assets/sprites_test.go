@@ -16,7 +16,15 @@ func TestPlayableRosterHasAllMoveAnimations(t *testing.T) {
 		t.Fatal(err)
 	}
 	definitions := characters.Roster()
+	if len(spec.Characters) != len(definitions) {
+		t.Fatalf("playable roster has %d fighters, definitions have %d", len(spec.Characters), len(definitions))
+	}
+	seen := map[string]bool{}
 	for _, id := range spec.Characters {
+		if seen[id] {
+			t.Fatalf("duplicate fighter %s", id)
+		}
+		seen[id] = true
 		atlas, err := ReadSpriteAtlas(filepath.Join(root, "assets", "sprites", id, "animations.json"))
 		if err != nil {
 			t.Fatal(err)
@@ -34,6 +42,11 @@ func TestPlayableRosterHasAllMoveAnimations(t *testing.T) {
 			if _, ok := atlas.Clips["standby"]; !ok {
 				t.Fatal("Khaliman standby is missing")
 			}
+		}
+	}
+	for _, d := range definitions {
+		if !seen[d.ID] {
+			t.Errorf("fighter %s is not selectable", d.ID)
 		}
 	}
 }

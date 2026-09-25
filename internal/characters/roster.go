@@ -1,4 +1,4 @@
-// Package characters defines the ten fighters. Shared combat stays in game.
+// Package characters defines the playable fighters. Shared combat stays in game.
 package characters
 
 import (
@@ -18,6 +18,8 @@ func Roster() []fighter.Definition {
 		{ID: "fedoseev", Name: "ФЕДОСЕЕВ", Archetype: "Контратаки и сарказм", Passive: "Сарказм: контратака отнимает энергию противника", MaxHP: 970, Speed: 1.02, Power: 1, Defense: 1, Color: [3]uint8{185, 145, 237}},
 		{ID: "khaliman", Name: "ХАЛИМАН", Archetype: "Стойки и усиления", Passive: "Ожидание заряжает энергию; джеб → сильный удар усиливается", MaxHP: 1050, Speed: .96, Power: 1.1, Defense: 1, Color: [3]uint8{81, 217, 171}},
 		{ID: "shuev", Name: "ШУЕВ", Archetype: "Дисциплина карате", Passive: "Бесконечная смена: ускоренное восстановление", MaxHP: 1030, Speed: 1.08, Power: 1.08, Defense: 1, Color: [3]uint8{218, 219, 231}},
+		{ID: "tsvetkov", Name: "ЦВЕТКОВ", Archetype: "Байкер и любитель пива", Passive: "Дорожная закалка: на 20% меньше урона через блок", VictoryText: "ПОЛНЫЙ БАК. ПОЛНАЯ КРУЖКА.", MaxHP: 1120, Speed: .92, Power: 1.12, Defense: 1.05, Color: [3]uint8{235, 163, 69}},
+		{ID: "kozerod", Name: "КОЗЕРОД", Archetype: "Амбициозный электронник", Passive: "Амбиции: каждое третье попадание даёт +6 энергии", VictoryText: "ПРОЕКТ СДАН. ПЛАН ПЕРЕВЫПОЛНЕН.", MaxHP: 990, Speed: 1.13, Power: 1, Defense: 1, Color: [3]uint8{130, 171, 255}},
 	}
 	for i := range roster {
 		d := &roster[i]
@@ -135,6 +137,22 @@ func configure(d *fighter.Definition) {
 		s.HitStun = .85
 		b = defense("РЕЖИМ КАЧАЛКИ", "gym_mode", "gym", 12)
 		u = projectile(ultimate("АСУ ТП", "asutp", "panel", 65, 1), "electric", 4)
+	case "tsvetkov":
+		s = projectile(attack("special", "ПЕННЫЙ ЗАЛП", "foam_burst", "foam", 70, 1, 6), "foam", 1)
+		b = defense("БАЙКЕРСКАЯ СТОЙКА", "biker_guard", "armor", 10)
+		u = ultimate("ПОЛНЫЙ ГАЗ", "full_throttle", "engine", 225, 1.02)
+		u.Dash = 5
+		u.Startup = .38
+		u.Active = .3
+		u.Events[1].At = u.Startup
+	case "kozerod":
+		s = projectile(attack("special", "ДУГОВОЙ РАЗРЯД", "arc_discharge", "arc", 68, 1, 5.5), "arc", 1)
+		s.HitStun = .7
+		b = defense("ПЕРЕЗАРЯДКА", "capacitor_charge", "capacitor", 11)
+		u = ultimate("ПРОЕКТ: ПЕРЕГРУЗКА", "circuit_overload", "arc", 78, 1)
+		u.Knockdown = false
+		u.KnockbackX = .3
+		u = projectile(u, "arc", 3)
 	case "shuev":
 		s = attack("special", "СЕРИЯ КАРАТЕ", "karate_flurry", "trail", 27, .97, 6)
 		s.Hits = 4

@@ -26,6 +26,12 @@ func (r *Renderer) DrawProjectile(p game.Projectile) {
 	if p.Kind == "auger" {
 		color = rl.NewColor(242, 197, 128, 255)
 	}
+	if p.Kind == "foam" {
+		color = rl.NewColor(255, 187, 65, 255)
+	}
+	if p.Kind == "arc" {
+		color = rl.NewColor(156, 178, 255, 255)
+	}
 	for i := 7; i > 0; i-- {
 		rl.DrawCircleV(point(-float32(i)*.06, 0), r.Unit*(.035+float32(7-i)*.012), rl.Fade(color, .028*float32(8-i)))
 	}
@@ -58,7 +64,22 @@ func (r *Renderer) DrawProjectile(p game.Projectile) {
 			rl.DrawCircleLinesV(at, radius, rl.Fade(color, .5))
 		}
 		rl.DrawCircleV(center, r.Unit*.065, rl.NewColor(222, 247, 255, 220))
-	case "electric":
+	case "foam":
+		rl.DrawEllipse(int32(center.X), int32(center.Y), r.Unit*.25, r.Unit*.14, rl.Fade(color, .8))
+		for i := 0; i < 7; i++ {
+			x := float32(i)*.067 - .21
+			y := -.08 + float32(math.Sin(float64(i)*2+float64(r.Time)*12))*.055
+			rl.DrawCircleV(point(x, y), r.Unit*(.055+float32(i%3)*.011), rl.NewColor(255, 249, 222, 240))
+		}
+		rl.DrawCircleV(point(.24, .025), r.Unit*.045, rl.White)
+	case "electric", "arc":
+		if p.Kind == "arc" {
+			rl.DrawCircleV(center, r.Unit*.20, rl.Fade(color, .14))
+			rl.DrawCircleLinesV(center, r.Unit*.16, color)
+			for _, x := range []float32{-.27, .27} {
+				rl.DrawCircleV(point(x, 0), r.Unit*.037, color)
+			}
+		}
 		for j := 0; j < 2; j++ {
 			last := point(-.29, 0)
 			for i := 1; i <= 7; i++ {
@@ -81,4 +102,14 @@ func (r *Renderer) DrawProjectile(p game.Projectile) {
 func (r *Renderer) DrawStatusRing(pos combat.Vec3, color rl.Color) {
 	c := r.Project(pos.Add(combat.Vec3{Y: 1.05}))
 	rl.DrawEllipseLines(int32(c.X), int32(c.Y), r.Unit*.43, r.Unit*.62, rl.Fade(color, .65))
+}
+
+func (r *Renderer) DrawEngineTrail(pos combat.Vec3, facing float32) {
+	for i := 0; i < 5; i++ {
+		p := pos.Add(combat.Vec3{X: -facing * (.35 + float32(i)*.14), Y: .05 + float32(i%2)*.07})
+		at := r.Project(p)
+		rl.DrawCircleV(at, r.Unit*(.065+float32(i)*.016), rl.NewColor(184, 161, 135, uint8(90-i*13)))
+		end := r.Project(p.Add(combat.Vec3{X: -facing * .35}))
+		rl.DrawLineEx(at, end, 2, rl.NewColor(255, 193, 88, uint8(160-i*25)))
+	}
 }

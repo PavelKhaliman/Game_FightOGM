@@ -435,6 +435,10 @@ func (m *Match) tryInput(f *fighter.Fighter, a input.Action) {
 	m.startMove(f, move)
 }
 func (m *Match) startMove(f *fighter.Fighter, move combat.MoveDefinition) {
+	if f.Status.Capacitor > 0 && move.Projectile && move.Damage > 0 {
+		move.Damage *= 1.35
+		f.Status.Capacitor = 0
+	}
 	if f.Status.Focus > 0 {
 		move.Recovery *= .55
 		move.Startup *= .8
@@ -547,6 +551,9 @@ func (m *Match) buff(f *fighter.Fighter, kind string) {
 		f.Status.Gym = 6
 	case "focus":
 		f.Status.Focus = 8
+	case "capacitor":
+		f.Status.Capacitor = 6
+		f.Meter = min(100, f.Meter+12)
 	}
 }
 func (m *Match) spawnProjectiles(f *fighter.Fighter, move combat.MoveDefinition, kind string, count int) {
@@ -659,6 +666,9 @@ func (m *Match) strike(owner int, move combat.MoveDefinition, part int) {
 	}
 	if blocked {
 		damage *= move.Chip
+		if d.Definition.ID == "tsvetkov" {
+			damage *= .8
+		}
 		d.Status.AutoBlock = 0
 		d.Stun = max(d.Stun, move.BlockStun)
 		d.SetState(fighter.Blocking)
@@ -706,6 +716,9 @@ func (m *Match) strike(owner int, move combat.MoveDefinition, part int) {
 		}
 		a.Connected = true
 		a.HitCount++
+		if a.Definition.ID == "kozerod" && a.HitCount%3 == 0 {
+			a.Meter = min(100, a.Meter+6)
+		}
 		if a.Definition.ID == "novatskiy" && a.Combo.Hits > 1 {
 			a.Meter = min(100, a.Meter+4)
 		}

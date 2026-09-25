@@ -192,7 +192,6 @@ func (r *Renderer) Update(m *game.Match, dt, animationDT float32) {
 	if m == nil {
 		return
 	}
-	center := (m.Fighters[0].Position.X + m.Fighters[1].Position.X) * .5
 	distance := float32(math.Abs(float64(m.Fighters[0].Position.X - m.Fighters[1].Position.X)))
 	tallest := float32(2)
 	for i, f := range m.Fighters {
@@ -205,6 +204,7 @@ func (r *Renderer) Update(m *game.Match, dt, animationDT float32) {
 	wanted := min(float32(210), 1240/(distance+2.2), verticalLimit)
 	r.Unit += (wanted - r.Unit) * min(1, dt*8)
 	r.Unit = min(r.Unit, verticalLimit)
+	center := cameraCenter(r.Center, r.Unit, m.Fighters[0].Position.X, m.Fighters[1].Position.X)
 	r.Center += (center - r.Center) * min(1, dt*9)
 	active := r.Sparks[:0]
 	for _, p := range r.Sparks {
@@ -217,6 +217,17 @@ func (r *Renderer) Update(m *game.Match, dt, animationDT float32) {
 		active = append(active, p)
 	}
 	r.Sparks = active
+}
+
+// Pan only when a fighter reaches the safe edge. Following the midpoint at
+// close range made a stationary opponent appear to slide toward the player.
+func cameraCenter(current, unit, a, b float32) float32 {
+	halfWidth := float32(620) / unit
+	lo, hi := max(a, b)-halfWidth, min(a, b)+halfWidth
+	if lo > hi {
+		return (a + b) * .5
+	}
+	return combat.Clamp(current, lo, hi)
 }
 
 func (r *Renderer) Project(pos combat.Vec3) rl.Vector2 {

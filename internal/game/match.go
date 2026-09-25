@@ -10,6 +10,8 @@ import (
 
 const Step float32 = 1.0 / 120
 
+const PushboxWidth float32 = .84
+
 type Phase uint8
 
 const (
@@ -262,8 +264,7 @@ func (m *Match) updateFighter(f *fighter.Fighter, dt float32) {
 			if f.Move.Animation == "sueta_dash" && (f.Input.X != 0 || f.Input.Z != 0) {
 				dir = combat.Vec3{X: f.Input.X, Z: f.Input.Z}.Unit()
 			}
-			f.Position = f.Position.Add(dir.Mul(f.Move.Dash * dt))
-			m.clamp(f)
+			m.moveHorizontal(f, dir.X*f.Move.Dash*dt)
 		}
 		a := f.Buffer.Peek(m.Time)
 		canCancel := f.Connected && f.MoveTime >= f.Move.Startup+f.Move.Active*.6 && (f.Move.ID == "light" && (a == input.Heavy || a == input.Kick) || f.Move.ID == "heavy" && a == input.Kick)
@@ -323,8 +324,7 @@ func (m *Match) updateFighter(f *fighter.Fighter, dt float32) {
 		if airborne {
 			speed *= .9
 		}
-		f.Position = f.Position.Add(movement.Mul(speed * dt))
-		m.clamp(f)
+		m.moveHorizontal(f, movement.X*speed*dt)
 		f.Status.Stationary = 0
 		if !airborne {
 			f.SetState(fighter.Walking)
@@ -367,26 +367,46 @@ func (m *Match) clamp(f *fighter.Fighter) {
 	f.Position.Z = 0
 	f.Velocity.Z = 0
 }
+
+// Walking and attack lunges stop at the opponent instead of carrying both
+// fighters along. Physical knockback still resolves through separate().
+func (m *Match) moveHorizontal(f *fighter.Fighter, dx float32) {
+	other := m.Fighters[1-f.Index]
+	if float32(math.Abs(float64(f.Position.Y-other.Position.Y))) < 1.2 {
+		distance := f.Position.X - other.Position.X
+		side := float32(1)
+		if distance < 0 || (distance == 0 && f.Facing.X >= 0) {
+			side = -1
+		}
+		if dx*side < 0 {
+			space := max(0, float32(math.Abs(float64(distance)))-PushboxWidth)
+			dx = side * max(-space, dx*side)
+		}
+	}
+	f.Position.X += dx
+	m.clamp(f)
+}
+
 func (m *Match) separate() {
 	a, b := m.Fighters[0], m.Fighters[1]
 	d := b.Position.Sub(a.Position)
 	d.Y = 0
 	d.Z = 0
 	l := d.Len()
-	if l < .68 && float32(math.Abs(float64(a.Position.Y-b.Position.Y))) < 1.2 {
+	if l < PushboxWidth && float32(math.Abs(float64(a.Position.Y-b.Position.Y))) < 1.2 {
 		if l < .0001 {
 			d.X = a.Facing.X
 			if d.X == 0 {
 				d.X = 1
 			}
 		}
-		delta := d.Unit().Mul((.68 - l) * .5)
+		delta := d.Unit().Mul((PushboxWidth - l) * .5)
 		a.Position = a.Position.Sub(delta)
 		b.Position = b.Position.Add(delta)
 		m.clamp(a)
 		m.clamp(b)
 		// Keep the pushboxes separated when either fighter is against a wall.
-		remaining := .68 - float32(math.Abs(float64(b.Position.X-a.Position.X)))
+		remaining := PushboxWidth - float32(math.Abs(float64(b.Position.X-a.Position.X)))
 		if remaining > 0 {
 			if math.Abs(float64(a.Position.X)) >= 3.599 {
 				b.Position.X += d.Unit().X * remaining

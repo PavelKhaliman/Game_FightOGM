@@ -1,7 +1,6 @@
 package assets
 
 import (
-	"fightogm/internal/characters"
 	"os"
 	"path/filepath"
 	"testing"
@@ -13,20 +12,12 @@ func TestLegacyManifestAndGLBClips(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
-	roster := characters.Roster()
 	if len(manifest.Characters) != 10 {
 		t.Fatal("archived 3D manifest must retain its ten original fighters")
 	}
-	for _, d := range roster {
-		if _, legacy := manifest.Characters[d.ID]; !legacy {
-			continue // New fighters are native 2D and do not require a GLB.
-		}
-		t.Run(d.ID, func(t *testing.T) {
-			entry, ok := manifest.Characters[d.ID]
-			if !ok {
-				t.Fatal("fighter missing from manifest")
-			}
-			meta, e := ReadGLB(filepath.Join(root, d.ModelPath))
+	for id, entry := range manifest.Characters {
+		t.Run(id, func(t *testing.T) {
+			meta, e := ReadGLB(filepath.Join(root, "assets", "models", id+".glb"))
 			if e != nil {
 				t.Fatal(e)
 			}
@@ -40,14 +31,6 @@ func TestLegacyManifestAndGLBClips(t *testing.T) {
 			for _, name := range append(entry.Base, entry.Special...) {
 				if !names[name] {
 					t.Fatalf("missing clip %s", name)
-				}
-			}
-			for _, move := range d.Moves {
-				if !names[move.Animation] {
-					t.Fatalf("move references unknown animation: %s", move.Animation)
-				}
-				if move.Duration() <= 0 {
-					t.Fatal("invalid move timing")
 				}
 			}
 		})

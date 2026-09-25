@@ -84,6 +84,10 @@ func (a *App) smokeRoster(dir string, report map[string]any) error {
 				moveID = "ultimate"
 			}
 			move := d.Moves[moveID]
+			if d.ID == "novatskiy" && move.Damage > 0 {
+				f.Position.X = -.85
+				enemy.Position.X = .85
+			}
 			if move.Projectile {
 				f.Position.X = -1.4
 				enemy.Position.X = 1.4
@@ -128,7 +132,7 @@ func (a *App) smokeRoster(dir string, report map[string]any) error {
 			actionsPlayed++
 		}
 	}
-	if len(projectiles) != 7 || !projectiles["foam"] || !projectiles["arc"] {
+	if len(projectiles) != 6 || !projectiles["foam"] || !projectiles["arc"] {
 		return fmt.Errorf("не проверены все типы снарядов: %v", projectiles)
 	}
 	report["sprite_frames"] = totalFrames

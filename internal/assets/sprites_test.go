@@ -32,6 +32,9 @@ func TestPlayableRosterHasAllMoveAnimations(t *testing.T) {
 		for _, d := range definitions {
 			if d.ID == id {
 				for _, move := range d.Moves {
+					if move.Duration() <= 0 {
+						t.Errorf("%s: invalid timing for %s", id, move.ID)
+					}
 					if _, ok := atlas.Clips[move.Animation]; !ok {
 						t.Errorf("%s: missing %s for %s", id, move.Animation, move.ID)
 					}

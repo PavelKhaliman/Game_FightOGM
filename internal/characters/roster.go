@@ -102,10 +102,38 @@ func configure(d *fighter.Definition) {
 		u.Hits = 5
 		u.Dash = 3.8
 	case "novatskiy":
-		s = projectile(attack("special", "ШНЕК", "screw_throw", "auger", 72, 1, 6), "auger", 1)
+		// The shaft remains in his hands. Multiple small volumes cover the
+		// held weapon without hitting behind him or across the entire arena.
+		shaft := []combat.HitboxDefinition{{Forward: .6, Height: 1.3, Radius: .24}, {Forward: 1, Height: 1.3, Radius: .24}, {Forward: 1.4, Height: 1.3, Radius: .24}}
+		for _, id := range []string{"light", "heavy", "hook"} {
+			move := d.Moves[id]
+			move.Effect = "auger_swing"
+			move.Hitboxes = append([]combat.HitboxDefinition(nil), shaft...)
+			if id == "light" {
+				move.Name = "Тычок шнеком"
+				move.Startup = .16
+				move.Hitboxes = move.Hitboxes[:2]
+			} else {
+				move.Name = "Замах шнеком"
+				move.Startup = .32
+			}
+			d.Moves[id] = move
+		}
+		s = attack("special", "УДАР ШНЕКОМ", "screw_strike", "auger_swing", 96, 1.4, 5)
+		s.Startup, s.Active, s.Recovery = .38, .16, .46
+		s.Heavy = true
+		s.KnockbackX = 1.15
+		s.Hitboxes = shaft
+		s.Events[1].At = s.Startup
 		b = defense("Я ЗАНЯТ.", "snap_back", "counter", 8)
 		b.CounterWindow = .7
-		u = projectile(ultimate("ПАРТИЯ ШНЕКОВ", "screw_batch", "auger", 62, 1), "auger", 5)
+		u = ultimate("ШНЕКОВЫЙ НАПОР", "screw_combo", "auger_swing", 86, 1.4)
+		u.Hits = 3
+		u.Startup, u.Active, u.Recovery = .46, .72, .6
+		u.Hitboxes = shaft
+		u.KnockbackX = 1.1
+		u.KnockbackY = 1.3
+		u.Events[1].At = u.Startup
 	case "zhirnov":
 		s = projectile(attack("special", "ИИ-АГЕНТ", "ai_agent", "bot", 65, 1, 7), "bot", 1)
 		b = defense("АВТОПИЛОТ", "autopilot", "autoblock", 9)

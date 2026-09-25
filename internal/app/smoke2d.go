@@ -296,6 +296,9 @@ func (a *App) smoke(dir string) error {
 	if err := a.smokeRoster(dir, report); err != nil {
 		return err
 	}
+	if err := a.smokeCloseRange(dir, report); err != nil {
+		return err
+	}
 	a.Selection = [2]int{0, 0}
 	reset()
 	start := time.Now()

@@ -16,7 +16,7 @@ HEIGHTS = {
 SPECIALS = {
     'gagloev': ('skewer_control', 'block', 'shashlik'),
     'kiselik': ('sueta_dash', 'yes_boss', 'everything_at_once'),
-    'novatskiy': ('screw_throw', 'snap_back', 'screw_batch'),
+    'novatskiy': ('screw_strike', 'snap_back', 'screw_combo'),
     'zhirnov': ('ai_agent', 'autopilot', 'do_it_for_me'),
     'elkhimov': ('wrench_32', 'repair_armor', 'overhaul'),
     'kalachev': ('water_burst', 'was_not_here', 'break_return'),
@@ -57,8 +57,11 @@ def build(person):
                 if min(x+w, br+2) > max(x, bx-2) and min(y+h, bb+2) > max(y, by-2):
                     cuts.update([max(y, by-2), min(y+h, bb+2)])
             regions = []
-            cuts = sorted(cuts)
             if len(cuts) > 2:
+                # Narrow bands follow the actual silhouette; a single tall
+                # overlap band can otherwise include a neighbour's hand.
+                cuts.update(range(y+4, y+h, 4))
+                cuts = sorted(cuts)
                 for y0, y1 in zip(cuts, cuts[1:]):
                     spans = [s for s in figures[index]['spans'] if y0-2 <= s[1] < y1+2]
                     if not spans:
@@ -85,7 +88,13 @@ def build(person):
             if sheet == 'movement' and index == 5:
                 px = w/2
             world_height = heights[index]
-            if sheet == 'actions' and (index >= 6 or (person['id'] in ('tsvetkov', 'kozerod') and index != 2)):
+            if person['id'] == 'novatskiy':
+                # Preserve body size in the new held-weapon atlas, including
+                # its lower kick recovery and raised victory fist.
+                reference_index = 4 if sheet == 'actions' else 0
+                reference_height = boxes[reference_index][3]-boxes[reference_index][1]+4
+                world_height = round((1.95 if sheet == 'actions' else 2)*h/reference_height, 4)
+            if sheet == 'actions' and (index >= 6 or (person['id'] in ('tsvetkov', 'kozerod', 'novatskiy') and index != 2)):
                 # Keep the same anatomical scale as the upright get-up frame;
                 # crouched attacks must lower the head instead of enlarging it.
                 reference_height = boxes[4][3]-boxes[4][1]+4
